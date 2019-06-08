@@ -1,0 +1,1 @@
+include("mezza-core", "catalog-themoviedb")

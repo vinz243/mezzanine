@@ -1,1 +1,5 @@
-include("mezza-core", "catalog-themoviedb")
+include(
+        "mezza-core",
+        "mezza-web",
+        "catalog-themoviedb"
+)

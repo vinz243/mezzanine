@@ -10,7 +10,7 @@ import info.movito.themoviedbapi.model.MovieDb
 import info.movito.themoviedbapi.model.core.ResponseStatusException
 import info.movito.themoviedbapi.model.people.PersonPeople
 
-class TmdbCatalog(private val api: TmdbApi) : Catalog<TmdbMovie> {
+class TmdbCatalog(override val catalogId: String, private val api: TmdbApi) : Catalog<TmdbMovie> {
     override fun findById(context: Context, id: String): TmdbMovie? {
         try {
             return movieEntity(api.movies.getMovie(id.toInt(), context.userLanguage))

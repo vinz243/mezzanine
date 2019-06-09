@@ -2,6 +2,10 @@ package github.mezza.catalog.themoviedb
 
 import info.movito.themoviedbapi.TmdbApi
 
-class TmdbCatalogFactory(private val apiKey: String) {
-    fun createCatalog() = TmdbCatalog(catalogId = "themoviedb", api = TmdbApi(apiKey))
+interface TmdbCatalogFactory {
+    fun createCatalog(): TmdbCatalog
+}
+
+class EnvCatalogFactory : TmdbCatalogFactory {
+    override fun createCatalog() = TmdbCatalog(catalogId = "themoviedb", api = TmdbApi(System.getenv("TMDB_API_KEY")))
 }

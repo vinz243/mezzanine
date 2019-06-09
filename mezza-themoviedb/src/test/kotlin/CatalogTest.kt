@@ -1,4 +1,4 @@
-import github.mezza.catalog.themoviedb.TmdbCatalogFactory
+import github.mezza.catalog.themoviedb.EnvCatalogFactory
 import github.mezza.core.Context
 import org.amshove.kluent.shouldBe
 import org.amshove.kluent.shouldEqual
@@ -8,7 +8,7 @@ import org.spekframework.spek2.Spek
 object CatalogTest: Spek({
     val context = Context("en_US")
     group("Catalog.search") {
-        val catalogFactory = TmdbCatalogFactory(System.getenv("TMDB_API_KEY"))
+        val catalogFactory = EnvCatalogFactory()
         test("returns empty list when no results") {
             val results = catalogFactory.createCatalog()
                     .search(context, "djsdoiiudhksdnei")
@@ -24,7 +24,7 @@ object CatalogTest: Spek({
         }
     }
     group("Catalog.findById") {
-        val catalogFactory = TmdbCatalogFactory(System.getenv("TMDB_API_KEY"))
+        val catalogFactory = EnvCatalogFactory()
         test("returns nothing for not found") {
             catalogFactory.createCatalog().findById(context, "-41") shouldBe null
         }

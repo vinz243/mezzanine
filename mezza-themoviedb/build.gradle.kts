@@ -21,6 +21,7 @@ dependencies {
     // spek requires kotlin-reflect, can be omitted if already in the classpath
     testRuntimeOnly("org.jetbrains.kotlin:kotlin-reflect:1.3.21")
     testImplementation("org.amshove.kluent:kluent:1.49")
+    testImplementation("io.mockk:mockk:1.9.3")
    // testCompile(project(":catalog-themoviedb"))
 }
 

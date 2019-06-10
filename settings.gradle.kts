@@ -1,5 +1,6 @@
 include(
         "mezza-core",
         "mezza-web",
-        "mezza-themoviedb"
+        "mezza-themoviedb",
+        "mezza-exposed"
 )

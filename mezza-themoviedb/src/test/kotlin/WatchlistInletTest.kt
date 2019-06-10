@@ -3,7 +3,7 @@ import github.mezza.catalog.themoviedb.SimpleEnvSessionFactory
 import github.mezza.catalog.themoviedb.TmdbSession
 import github.mezza.catalog.themoviedb.inlet.TmdbWatchlistInlet
 import github.mezza.catalog.themoviedb.model.TmdbMovie
-import github.mezza.core.catalog.CatalogRegistry
+import github.mezza.core.catalog.EntityRegistry
 import io.mockk.clearAllMocks
 import io.mockk.every
 import io.mockk.mockk
@@ -16,7 +16,7 @@ object WatchlistInletTest : Spek({
         val tmdbApi = EnvApiFactory().createApi()
         val session = SimpleEnvSessionFactory(tmdbApi).createSession()
 
-        val registry = mockk<CatalogRegistry<TmdbMovie>>(relaxed = true)
+        val registry = mockk<EntityRegistry<TmdbMovie>>(relaxed = true)
         val handler = mockk<TmdbMovie.() -> Unit>(relaxed = true)
 
         val inlet = TmdbWatchlistInlet(

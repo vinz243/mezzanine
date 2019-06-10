@@ -3,7 +3,7 @@ package github.mezza.catalog.themoviedb.inlet
 import github.mezza.catalog.themoviedb.TmdbSession
 import github.mezza.catalog.themoviedb.model.TmdbMapper
 import github.mezza.catalog.themoviedb.model.TmdbMovie
-import github.mezza.core.catalog.CatalogRegistry
+import github.mezza.core.catalog.EntityRegistry
 import info.movito.themoviedbapi.TmdbApi
 import info.movito.themoviedbapi.model.MovieDb
 import info.movito.themoviedbapi.model.core.AccountID
@@ -12,7 +12,7 @@ import info.movito.themoviedbapi.model.core.MovieResultsPage
 class TmdbWatchlistInlet(
         private val api: TmdbApi,
         private val session: TmdbSession,
-        private val registry: CatalogRegistry<TmdbMovie>,
+        private val registry: EntityRegistry<TmdbMovie>,
         private val handler: TmdbMovie.() -> Unit
 ) {
     private val mapper = TmdbMapper()
